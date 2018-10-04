@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+  <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+<a href="javascript:void(0);" onclick="fbLogin()" id="fbLink">welcome to facebook</a>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '187241455500959',
+      xfbml      : true,
+      version    : 'v3.1'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  // Facebook login with JavaScript SDK
+function fbLogin() {
+  console.log("$$$$$$$$$$$");
+    FB.login(function (response) {
+        if (response.authResponse) {
+        
+            // Get and display the user profile data
+            // getFbUserData();
+        } else {
+            // document.getElementById('status').innerHTML = 'User cancelled login or did not fully authorize.';
+        }
+    }, {scope: 'email'});
+}
+</script>
+
+
+
+</body>
+</html>
+
+
